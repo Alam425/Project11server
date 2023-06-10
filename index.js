@@ -5,13 +5,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 500;
 
 app.get('/', (req, res) => {
     res.send(
         [
             {   
-                serial: 01,
+                serial: 1,
                 name: "Arcee",
                 img: "https://i.ibb.co/L9KtqDN/arcee.jpg" ,
                 price:  "$ 87",
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
                 sub_category: "FEMALE" || "N/A" ,
             },
             {   
-                serial: 02,
+                serial: 2,
                 name: "Arcee",
                 img: "https://i.ibb.co/C5CDLLM/arcee2.jpg" ,
                 price:  "$ 84",
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
                 sub_category: "FEMALE" || "N/A" ,
             },
             {   
-                serial: 03,
+                serial: 3,
                 name: "Arcee",
                 img: "https://i.ibb.co/KyWgrWD/arcee3.webp" ,
                 price:  "$ 89",
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
                 sub_category: "FEMALE" || "N/A" ,
             },
             {   
-                serial: 04,
+                serial: 4,
                 name: "Blackarachnia",
                 img: "https://i.ibb.co/k8vMvNM/blackarachnia1.jpg" ,
                 price:  "$ 54",
@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
                 sub_category: "FEMALE" || "N/A" ,
             },
             {   
-                serial: 05,
+                serial: 5,
                 name: "Blackarachnia",
                 img: "https://i.ibb.co/VJfsJYm/blackarachnia2.jpg" ,
                 price:  "$ 23",
@@ -71,7 +71,7 @@ app.get('/', (req, res) => {
                 sub_category: "FEMALE" || "N/A" ,
             },
             {   
-                serial: 06,
+                serial: 6,
                 name: "Blackarachnia",
                 img: "https://i.ibb.co/pvbnksH/blackarachnia3.jpg" ,
                 price:  "$ 34",
@@ -83,7 +83,7 @@ app.get('/', (req, res) => {
                 sub_category: "FEMALE" || "N/A" ,
             },
             {   
-                serial: 07,
+                serial: 7,
                 name: "Bumblebee",
                 img: "https://i.ibb.co/c1xrLm2/bumblebee1.jpg" ,
                 price:  "$ 34",
@@ -95,7 +95,7 @@ app.get('/', (req, res) => {
                 sub_category: "MALE" || "N/A" ,
             },
             {   
-                serial: 08,
+                serial: 8,
                 name: "Bumblebee",
                 img: "https://i.ibb.co/8ctwTzC/bumblebee2.jpg" ,
                 price:  "$ 43",
@@ -107,7 +107,7 @@ app.get('/', (req, res) => {
                 sub_category: "MALE" || "N/A" ,
             },
             {   
-                serial: 09,
+                serial: 9,
                 name: "Bumblebee",
                 img: "https://i.ibb.co/Zfkq2QZ/bumblebee3.jpg" ,
                 price:  "$ 43",
@@ -989,3 +989,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log('Server is running on :', port);
 })
+
+module.express = app;
