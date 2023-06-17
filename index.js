@@ -36,7 +36,7 @@ async function run() {
         })
 
         app.get('/toy', async(req, res) => {
-            const toyDetailFromMongo = myToyCollection.find();
+            const toyDetailFromMongo = myToyCollection.find().sort({"name" : -1});
             const result = await toyDetailFromMongo.toArray();
             res.send(result);
         })
@@ -58,6 +58,37 @@ async function run() {
         app.get('/addToy', async(req, res) => {
             const addedToy = myAddedToysCollection.find();
             const result = await addedToy.toArray();
+            res.send(result);
+        })
+
+        app.delete('/addToy/:id', async(req, res) => {
+            const id = req.params.id;
+            console.log(id);
+            const query = { _id: new ObjectId(id) };
+            const deleteToy = await myAddedToysCollection.deleteOne(query);
+            console.log(deleteToy, id);
+            res.send(deleteToy);
+        })
+
+        app.put('/addToy/:id', async(req, res) =>{
+            const id = req.params.id;
+            const filter = {_id: new ObjectId(id)};
+            const options = {upsert : true};
+            const updatedToy = req.body;
+            const toy = {
+                $set:{
+                     ame : updatedToy.ame,
+                     mg : updatedToy.mg,
+                     ating : updatedToy.ating,
+                     rice : updatedToy.rice,
+                     uantity : updatedToy.uantity,
+                     escription : updatedToy.escription,
+                     ategory : updatedToy.ategory,
+                     ellerName : updatedToy.ellerName,
+                     ellerEmail : updatedToy.ellerEmail
+                },
+            }
+            const result = await myAddedToysCollection.updateOne(filter, toy, options);
             res.send(result);
         })
 
