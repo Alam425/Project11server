@@ -1,9 +1,9 @@
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const express = require('express');
 const cors = require('cors');
-const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 500;
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const app = express();
 
 app.use(express.json());
 app.use(cors());
@@ -24,8 +24,9 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
 
         const myToyCollection = client.db("shashuri").collection("bou");
+        const myAddedToysCollection = client.db("jamai").collection("bou");
         
-        await client.connect();    
+        // await client.connect();    
         
         app.post('/toy', async(req, res) => {
             const toyDetail = req.body;
@@ -45,6 +46,19 @@ async function run() {
             const query = { _id : new ObjectId(id) };
             const deletedToy = await myToyCollection.deleteOne(query);
             res.send(deletedToy);
+        })
+
+        app.post('/addToy', async(req, res) => {
+            const addedToy = req.body;
+            console.log(addedToy);
+            const result = await myAddedToysCollection.insertOne(addedToy);
+            res.send(result);
+        })
+
+        app.get('/addToy', async(req, res) => {
+            const addedToy = myAddedToysCollection.find();
+            const result = await addedToy.toArray();
+            res.send(result);
         })
 
         // Send a ping to confirm a successful connection
