@@ -77,15 +77,15 @@ async function run() {
             const updatedToy = req.body;
             const toy = {
                 $set:{
-                     ame : updatedToy.ame,
-                     mg : updatedToy.mg,
-                     ating : updatedToy.ating,
-                     rice : updatedToy.rice,
-                     uantity : updatedToy.uantity,
-                     escription : updatedToy.escription,
-                     ategory : updatedToy.ategory,
-                     ellerName : updatedToy.ellerName,
-                     ellerEmail : updatedToy.ellerEmail
+                    name : updatedToy.ame,
+                    img : updatedToy.mg,
+                    rating : updatedToy.ating,
+                    price : updatedToy.rice,
+                    quantity : updatedToy.uantity,
+                    description : updatedToy.escription,
+                    category : updatedToy.ategory,
+                    sellerName : updatedToy.ellerName,
+                    sellerEmail : updatedToy.ellerEmail
                 },
             }
             const result = await myAddedToysCollection.updateOne(filter, toy, options);
